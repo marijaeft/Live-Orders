@@ -5,6 +5,7 @@ import mk.payten.live_orders.model.OrderEntity;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,8 +14,9 @@ import reactor.core.publisher.Flux;
 import java.time.Duration;
 import java.time.LocalTime;
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("sse")
+@RequestMapping("/api/sse")
 public class SSEController {
 
     private final OrderEventPublisher eventPublisher;

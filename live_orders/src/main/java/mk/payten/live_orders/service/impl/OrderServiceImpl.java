@@ -12,6 +12,7 @@ import mk.payten.live_orders.service.OrderService;
 import mk.payten.live_orders.web.SSEController;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -51,7 +52,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderEntity> findAllOrders() {
-        return orderRepository.findAll();
+        LocalDateTime tenSecondsAgo = LocalDateTime.now().minusSeconds(10);
+        return orderRepository.fetchAll(tenSecondsAgo);
     }
 
     @Override

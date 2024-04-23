@@ -45,10 +45,11 @@ public class OrderEntity {
 
     @Override
     public String toString() {
-       return  "{" +
+        return  "{" +
                 "\"id\": " + id +
                 ", \"orderStatus\": \"" + orderStatus + "\"" +
                 ", \"orderNumber\": " + orderNumber +
+                ", \"updatedAt\" : \"" + updatedAt.toString() + "\"" +
                 "}";
     }
 }
