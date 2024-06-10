@@ -29,7 +29,7 @@ public class OrderEventPublisher {
     public void publishOrderUpdatedEvent(OrderEntity order) {
 
         orderEventsSink.tryEmitNext(order.toString());
-        //treba da pratam json od orderot
+        
     }
 
     public Flux<ServerSentEvent<String>> getOrderEvents() {
@@ -37,13 +37,5 @@ public class OrderEventPublisher {
                 .map(data -> ServerSentEvent.builder(data).build());
     }
 
-//    public static String serializeOrder(OrderEntity orderEntity)
-//    {
-//        try {
-//            return objectMapper.writeValueAsString(orderEntity);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
+
 }
