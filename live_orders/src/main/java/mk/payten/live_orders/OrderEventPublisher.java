@@ -16,8 +16,6 @@ public class OrderEventPublisher {
 
     private final Sinks.Many<String> orderEventsSink;
 
-    private static final ObjectMapper objectMapper = new ObjectMapper();
-
     public OrderEventPublisher() {
         this.orderEventsSink = Sinks.many().multicast().onBackpressureBuffer();
     }
